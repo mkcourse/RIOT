@@ -12,6 +12,11 @@ RIOTBASE ?= $(CURDIR)/../..
 # development process:
 DEVELHELP ?= 1
 
+USEMODULE += rtctimers-millis
+
+FEATURES_REQUIRED += periph_rtc
+FEATURES_REQUIRED += periph_gpio
+
 # Change this to 0 show compiler invocation lines by default:
 QUIET ?= 1
 
