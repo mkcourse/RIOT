@@ -31,15 +31,19 @@ static void btn_led_toggle(void*arg)
 {
 		(void)arg;
 		milliseconds_last_blink = rtctimers_millis_now();
+		int k=0;
 		if(rtctimers_millis_now() - milliseconds_last_press > 100)
 		{
-			for(int i=0; i<3;i++){
-				if(rtctimers_millis_now() - milliseconds_last_blink > 1000){
+			for(int i=0; i<6;i++){
+				while(k<1){
+				if(rtctimers_millis_now() - milliseconds_last_blink > 300){
 					milliseconds_last_blink = rtctimers_millis_now();
 					gpio_toggle(GPIO_PIN(PORT_B, 0));
+					k++;
 				}
 			}
-			
+			k=0;
+			}
 			milliseconds_last_press = rtctimers_millis_now();
 		}
 }
